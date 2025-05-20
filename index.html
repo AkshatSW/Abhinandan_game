@@ -15,7 +15,7 @@
 
   <style>
     @keyframes marquee-left {
-      0%   { transform: translateX(0%); }
+      0% { transform: translateX(0%); }
       100% { transform: translateX(-100%); }
     }
     .animate-marquee-left {
@@ -26,14 +26,13 @@
 <body class="bg-gray-100">
 
   <header class="bg-gray-800 text-white p-4">
-  <div class="container mx-auto text-center">
-    <h1 class="text-4xl font-bold">Abhinandan</h1>
-    <a href="https://www.instagram.com/abhay_bw/">
-    <p class="text-sm mt-1 italic text-gray-300">by @AbhayPandey</p>
-     </a>
-  </div>
-</header>
-
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold">Abhinandan</h1>
+      <a href="https://www.instagram.com/abhay_bw/">
+        <p class="text-sm mt-1 italic text-gray-300">by @AbhayPandey</p>
+      </a>
+    </div>
+  </header>
 
   <div class="container mx-auto mt-8">
     <!-- Image Marquee -->
@@ -71,17 +70,32 @@
     <div id="modalContent" class="bg-white p-6 mt-20 rounded-lg shadow-lg transform transition-all duration-500 scale-95 opacity-0 w-80">
       <h3 class="text-xl font-semibold mb-4 text-center">Support Me with a Tea ☕</h3>
       <img src="https://github.com/AkshatSW/Abhinandan_game/blob/main/images/WhatsApp%20Image%202025-05-20%20at%2018.24.15_e91aee15.jpg?raw=true" alt="QR Code" class="mx-auto rounded-lg shadow mb-4 w-full h-auto">
-      <p class="text-center font-medium">
-  UPI ID:
-  <a
-    href="upi://pay?pa=abhay28bw@okhdfcbank&pn=Abhay%20BW&cu=INR"
-    class="font-bold text-blue-600 underline hover:text-blue-800"
-  >
-    abhay28bw@okhdfcbank
-  </a>
-</p>
-<div class="text-center mt-4">
 
+      <p class="text-center font-medium">
+        UPI ID:
+        <span class="font-bold text-blue-600 underline hover:text-blue-800 cursor-pointer" onclick="focusAmount()">
+          abhay28bw@okhdfcbank
+        </span>
+      </p>
+
+      <div class="mt-4 text-center">
+        <label for="customAmount" class="block text-sm font-medium mb-1">Enter Amount (₹)</label>
+        <input
+          type="number"
+          id="customAmount"
+          min="1"
+          placeholder="e.g. 50"
+          class="px-3 py-2 border border-gray-300 rounded w-40 text-center"
+        />
+        <button
+          onclick="payCustomAmount()"
+          class="ml-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+        >
+          Pay
+        </button>
+      </div>
+
+      <div class="text-center mt-4">
         <button onclick="hideModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
           Close
         </button>
@@ -89,7 +103,7 @@
     </div>
   </div>
 
-  <!-- JS for Modal -->
+  <!-- Scripts -->
   <script>
     function showModal() {
       const modal = document.getElementById("teaModal");
@@ -110,17 +124,30 @@
         modal.classList.add("hidden");
       }, 300);
     }
+
+    function payCustomAmount() {
+      const amount = document.getElementById("customAmount").value;
+      if (!amount || parseFloat(amount) <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+      const upiLink = `upi://pay?pa=abhay28bw@okhdfcbank&pn=Abhay%20BW&am=${amount}&cu=INR`;
+      window.location.href = upiLink;
+    }
+
+    function focusAmount() {
+      document.getElementById("customAmount").focus();
+    }
   </script>
 
-
   <footer class="bg-gray-100 text-center py-4 mt-12 border-t">
-  <p class="text-sm text-gray-700">
-    Special thanks to 
-    <a href="https://instagram.com/akshatsw" target="_blank" class="text-blue-500 hover:underline">
-      Akshat Srivastava 
-    </a>
-  </p>
-</footer>
+    <p class="text-sm text-gray-700">
+      Special thanks to 
+      <a href="https://instagram.com/akshatsw" target="_blank" class="text-blue-500 hover:underline">
+        Akshat Srivastava
+      </a>
+    </p>
+  </footer>
 
 </body>
 </html>
