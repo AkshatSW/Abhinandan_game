@@ -1,58 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Operation Sindoor</title>
 
-     <!-- CSS -->
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+  <!-- CSS -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/mrz5svx.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bellaboo&display=swap" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet" />
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://use.typekit.net/mrz5svx.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Bellaboo&display=swap"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Borel&display=swap"
-      rel="stylesheet"
-    />
-
+  <style>
+    @keyframes marquee-left {
+      0%   { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee-left {
+      animation: marquee-left 30s linear infinite;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-gray-100">
 
-game name
-photos carausal
-buy me a fantastic tea 
-qr 
-game link 
-
-
-<header class="bg-gray-800 text-white p-4">
+  <header class="bg-gray-800 text-white p-4">
     <div class="container mx-auto text-center">
-        <h1 class="text-4xl font-bold">Operation Sindoor</h1>
+      <h1 class="text-4xl font-bold">Operation Sindoor</h1>
     </div>
-</header>
+  </header>
 
-<div class="container mx-auto mt-8">
-    <div class="flex justify-center">
-        <img src="https://via.placeholder.com/150" alt="Game Image" class="rounded-lg shadow-lg">
+  <div class="container mx-auto mt-8">
+    <!-- Image Marquee -->
+    <div class="overflow-hidden whitespace-nowrap mt-8">
+      <div class="inline-block animate-marquee-left space-x-6">
+        <img src="https://github.com/AkshatSW/Abhinandan_game/blob/main/images/Abhinandan.jpg?raw=true" alt="Abhinandan" class="h-48 inline-block rounded-lg shadow-lg">
+        <img src="https://github.com/AkshatSW/Abhinandan_game/blob/main/images/HighresScreenshot00000.png?raw=true" alt="Screenshot 1" class="h-48 inline-block rounded-lg shadow-lg">
+        <img src="https://github.com/AkshatSW/Abhinandan_game/blob/main/images/Loss_Screen.jpg?raw=true" alt="Loss Screen" class="h-48 inline-block rounded-lg shadow-lg">
+        <img src="https://github.com/AkshatSW/Abhinandan_game/blob/main/images/Pakistani.jpg?raw=true" alt="Pakistani" class="h-48 inline-block rounded-lg shadow-lg">
+        <img src="https://github.com/AkshatSW/Abhinandan_game/blob/main/images/Win_screen.jpg?raw=true" alt="Win Screen" class="h-48 inline-block rounded-lg shadow-lg">
+      </div>
     </div>
-    <div class="text-center mt-4">
-        <h2 class="text-2xl font-semibold">Buy Me a fantastic tea</h2>
-        <p class="mt-2">If you enjoy this game, consider buying me fantastic tea!</p>
-        <a href="https://www.buymeacoffee.com/yourusername" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600">Buy Me a fantastic Tea &#127861; </a>
-        
+
+    <!-- Buy Me a Tea -->
+    <div class="text-center mt-12">
+      <h2 class="text-2xl font-semibold">Buy Me a Fantastic Tea 🍵</h2>
+      <p class="mt-2">If you enjoy this game, consider buying me fantastic tea 🍵!</p>
+      <button onclick="showModal()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-blue-600">
+        Buy Me a Fantastic Tea 🍵
+      </button>
     </div>
-    <div class="text-center mt-8">
-        <h2 class="text-2xl font-semibold">Game Link</h2>
-        <p class="mt-2">Download the game from the link below:</p>
-        <a href="https://yourgame.com/download" class="mt-4 inline-block bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600">Download Game</a>
+
+    <!-- Game Link -->
+    <div class="text-center mt-12">
+      <h2 class="text-2xl font-semibold">Game Link</h2>
+      <p class="mt-2">Download the game from the link below:</p>
+      <a href="https://yourgame.com/download" class="mt-4 inline-block bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600">
+        Download Game
+      </a>
     </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="teaModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-start justify-center z-50">
+    <div id="modalContent" class="bg-white p-6 mt-20 rounded-lg shadow-lg transform transition-all duration-500 scale-95 opacity-0 w-80">
+      <h3 class="text-xl font-semibold mb-4 text-center">Support Me with a Tea ☕</h3>
+      <img src="https://github.com/AkshatSW/Abhinandan_game/blob/main/images/WhatsApp%20Image%202025-05-20%20at%2018.24.15_e91aee15.jpg?raw=true" alt="QR Code" class="mx-auto rounded-lg shadow mb-4 w-full h-auto">
+      <p class="text-center font-medium">UPI ID: <span class="font-bold">abhay28bw@okhdfcbank</span></p>
+      <div class="text-center mt-4">
+        <button onclick="hideModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS for Modal -->
+  <script>
+    function showModal() {
+      const modal = document.getElementById("teaModal");
+      const content = document.getElementById("modalContent");
+      modal.classList.remove("hidden");
+      setTimeout(() => {
+        content.classList.remove("scale-95", "opacity-0");
+        content.classList.add("scale-100", "opacity-100");
+      }, 10);
+    }
+
+    function hideModal() {
+      const modal = document.getElementById("teaModal");
+      const content = document.getElementById("modalContent");
+      content.classList.add("scale-95", "opacity-0");
+      content.classList.remove("scale-100", "opacity-100");
+      setTimeout(() => {
+        modal.classList.add("hidden");
+      }, 300);
+    }
+  </script>
+
 </body>
 </html>
